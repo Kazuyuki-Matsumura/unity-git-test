@@ -37,7 +37,7 @@ public class Box_Move : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(col+"1");
+        Debug.Log(col+"Git Succes!");
         col = true;
 
     }
