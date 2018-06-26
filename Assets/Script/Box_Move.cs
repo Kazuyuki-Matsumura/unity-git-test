@@ -15,7 +15,7 @@ public class Box_Move : MonoBehaviour
     Animator animator;   // アニメーション
 
     private bool col;
-    private int inp;
+
 
     void Start()
     {
@@ -28,7 +28,7 @@ public class Box_Move : MonoBehaviour
     {
 
         //移動中かどうかの判定。移動中でなければ入力を受付
-        if (transform.position == target && col == true)
+        if (transform.position == target && col == true )
         {
             SetTargetPosition();
         }
@@ -37,7 +37,6 @@ public class Box_Move : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(col+"Git Succes!");
         col = true;
 
     }
@@ -45,35 +44,36 @@ public class Box_Move : MonoBehaviour
     //入力に応じて移動後の位置を算出
     void SetTargetPosition()
     {
+
         prevPos = target;   
-        Debug.Log(col + "2");
         col = false;
-        Debug.Log(col + "3");
+
         if (Input.GetKey("right"))
-            {
-                target = transform.position + X;
-                SetAnimationParam(1);
-                return;
-            }
-            if (Input.GetKey("left"))
-            {
-                target = transform.position - X;
-                SetAnimationParam(2);
-                return;
-            }
-            if (Input.GetKey("up"))
-            {
-                target = transform.position + Z;
-                SetAnimationParam(3);
-                return;
-            }
-            if (Input.GetKey("down"))
-            {
-                target = transform.position - Z;
-                SetAnimationParam(0);
-                return;
-            }
+        {
+            target = transform.position + X;
+            SetAnimationParam(1);
+            return;
+        }
+        if (Input.GetKey("left"))
+        {
+            target = transform.position - X;
+            SetAnimationParam(2);
+            return;
+        }
+        if (Input.GetKey("up"))
+        {
+            target = transform.position + Z;
+            SetAnimationParam(3);
+            return;
+        }
+        if (Input.GetKey("down"))
+        {
+            target = transform.position - Z;
+            SetAnimationParam(0);
+            return;
+        }
     }
+
 
     // WalkParam  0;下移動　1;右移動　2:左移動　3:上移動
     void SetAnimationParam(int param)
