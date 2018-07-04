@@ -34,7 +34,7 @@ public class Box_Move : MonoBehaviour
     {
 
         //移動中かどうかの判定。移動中でなければ入力を受付
-        if (transform.position == target /*&& col == true*/ )
+        if (transform.position == target)
         {
             SetTargetPosition();
         }
@@ -58,25 +58,25 @@ public class Box_Move : MonoBehaviour
         prevPos = target;   
         //col = false;
 
-        if (Input.GetKey("right") && x_down.x_down_exist==true)
+        if (Input.GetKeyDown("right") && x_down.x_down_exist==true)
         {
             target = transform.position + X;
             SetAnimationParam(1);
             return;
         }
-        if (Input.GetKey("left") && x_up.x_up_exist==true)
+        if (Input.GetKeyDown("left") && x_up.x_up_exist==true)
         {
             target = transform.position - X;
             SetAnimationParam(2);
             return;
         }
-        if (Input.GetKey("up") && z_down.z_down_exist==true)
+        if (Input.GetKeyDown("up") && z_down.z_down_exist==true)
         {
             target = transform.position + Z;
             SetAnimationParam(3);
             return;
         }
-        if (Input.GetKey("down") && z_up.z_up_exist==true)
+        if (Input.GetKeyDown("down") && z_up.z_up_exist==true)
         {
             target = transform.position - Z;
             SetAnimationParam(0);

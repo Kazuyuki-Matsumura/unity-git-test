@@ -62,25 +62,25 @@ public class Ball_Move : MonoBehaviour
         //ジャンプモードでないとき
         if (!jump_Mode)
         {
-            if (Input.GetKey("right"))
+            if (Input.GetKeyDown("right"))
             {
                 target = transform.position + X;
                 SetAnimationParam(1);
                 return;
             }
-            if (Input.GetKey("left"))
+            if (Input.GetKeyDown("left"))
             {
                 target = transform.position - X;
                 SetAnimationParam(2);
                 return;
             }
-            if (Input.GetKey("up"))
+            if (Input.GetKeyDown("up"))
             {
                 target = transform.position + Z;
                 SetAnimationParam(3);
                 return;
             }
-            if (Input.GetKey("down"))
+            if (Input.GetKeyDown("down"))
             {
                 target = transform.position - Z;
                 SetAnimationParam(0);
@@ -90,25 +90,25 @@ public class Ball_Move : MonoBehaviour
         //ジャンプモードのとき
         else if (jump_Mode)
         {
-            if (Input.GetKey("right"))
+            if (Input.GetKeyDown("right"))
             {
                 target = transform.position + X + Y;
                 SetAnimationParam(1);
                 return;
             }
-            if (Input.GetKey("left"))
+            if (Input.GetKeyDown("left"))
             {
                 target = transform.position - X + Y;
                 SetAnimationParam(2);
                 return;
             }
-            if (Input.GetKey("up"))
+            if (Input.GetKeyDown("up"))
             {
                 target = transform.position + Z + Y;
                 SetAnimationParam(3);
                 return;
             }
-            if (Input.GetKey("down"))
+            if (Input.GetKeyDown("down"))
             {
                 target = transform.position - Z + Y;
                 SetAnimationParam(0);
