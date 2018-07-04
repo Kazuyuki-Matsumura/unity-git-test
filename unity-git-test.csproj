@@ -83,6 +83,10 @@
     <Compile Include="Assets\Script\Box_Vanish.cs" />
     <Compile Include="Assets\Script\Down_Collision.cs" />
     <Compile Include="Assets\Script\Goal.cs" />
+    <Compile Include="Assets\Script\X_Down.cs" />
+    <Compile Include="Assets\Script\X_Up.cs" />
+    <Compile Include="Assets\Script\Z_Down.cs" />
+    <Compile Include="Assets\Script\Z_Up.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

@@ -15,22 +15,26 @@ public class Box_Move : MonoBehaviour
 
     Animator animator;   // アニメーション
 
-    private bool col;
+    //private bool col;
 
     public Down_Collision down;
+    public X_Up x_up;
+    public X_Down x_down;
+    public Z_Up z_up;
+    public Z_Down z_down;
 
     void Start()
     {
         target = transform.position;
         animator = GetComponent<Animator>();
-        col = false;
+        //col = false;
     }
 
     void Update()
     {
 
         //移動中かどうかの判定。移動中でなければ入力を受付
-        if (transform.position == target && col == true )
+        if (transform.position == target /*&& col == true*/ )
         {
             SetTargetPosition();
         }
@@ -41,38 +45,38 @@ public class Box_Move : MonoBehaviour
         Move();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         col = true;
 
-    }
+    }*/
 
     //入力に応じて移動後の位置を算出
     void SetTargetPosition()
     {
 
         prevPos = target;   
-        col = false;
+        //col = false;
 
-        if (Input.GetKey("right"))
+        if (Input.GetKey("right") && x_down.x_down_exist==true)
         {
             target = transform.position + X;
             SetAnimationParam(1);
             return;
         }
-        if (Input.GetKey("left"))
+        if (Input.GetKey("left") && x_up.x_up_exist==true)
         {
             target = transform.position - X;
             SetAnimationParam(2);
             return;
         }
-        if (Input.GetKey("up"))
+        if (Input.GetKey("up") && z_down.z_down_exist==true)
         {
             target = transform.position + Z;
             SetAnimationParam(3);
             return;
         }
-        if (Input.GetKey("down"))
+        if (Input.GetKey("down") && z_up.z_up_exist==true)
         {
             target = transform.position - Z;
             SetAnimationParam(0);

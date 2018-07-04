@@ -37,6 +37,7 @@ public class Ball_Move : MonoBehaviour
         //移動中かどうかの判定。移動中でなければ入力を受付
         if (transform.position == target)
         {
+            //落下判定
             if (down.down_exist == false)
             {
                 target = target - Y;
