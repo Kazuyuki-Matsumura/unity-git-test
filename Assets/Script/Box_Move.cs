@@ -6,6 +6,7 @@ public class Box_Move : MonoBehaviour
 {
 
     Vector3 X = new Vector3(1, 0, 0);
+    Vector3 Y = new Vector3(0, 1, 0);
     Vector3 Z = new Vector3(0, 0, 1);
 
     public float speed = 2f;
@@ -16,6 +17,7 @@ public class Box_Move : MonoBehaviour
 
     private bool col;
 
+    public Down_Collision down;
 
     void Start()
     {
@@ -31,6 +33,10 @@ public class Box_Move : MonoBehaviour
         if (transform.position == target && col == true )
         {
             SetTargetPosition();
+        }
+        if (transform.position == target && down.down_exist == false)
+        {
+                target = target - Y;
         }
         Move();
     }

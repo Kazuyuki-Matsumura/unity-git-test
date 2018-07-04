@@ -12,6 +12,7 @@ public class Ball_Move : MonoBehaviour
     
 
     public float speed = 2f;
+
     Vector3 target;      // 入力受付時、移動後の位置を算出して保存 
     Vector3 prevPos;     // 何らかの理由で移動できなかった場合、元の位置に戻すため移動前の位置を保存
     Rigidbody player_Rigidbody;
@@ -20,6 +21,7 @@ public class Ball_Move : MonoBehaviour
 
     private bool jump_Mode;
 
+    public Down_Collision down;
 
     void Start()
     {
@@ -29,21 +31,24 @@ public class Ball_Move : MonoBehaviour
         jump_Mode = false;
     }
 
-        void Update()
+    void Update()
     {
 
         //移動中かどうかの判定。移動中でなければ入力を受付
         if (transform.position == target)
         {
+            if (down.down_exist == false)
+            {
+                target = target - Y;
+            }
             SetTargetPosition();
         }
         Move();
 
-
+        //xでジャンプモード
         if (Input.GetKeyDown("x"))
         {
             jump_Mode = !(jump_Mode);
-            Debug.Log(jump_Mode);
         }
     }
 
@@ -110,7 +115,6 @@ public class Ball_Move : MonoBehaviour
             }
 
         }
-        
     }
 
     // WalkParam  0;下移動　1;右移動　2:左移動　3:上移動

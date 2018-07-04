@@ -81,6 +81,7 @@
     <Compile Include="Assets\Script\Ball_Move.cs" />
     <Compile Include="Assets\Script\Box_Move.cs" />
     <Compile Include="Assets\Script\Box_Vanish.cs" />
+    <Compile Include="Assets\Script\Down_Collision.cs" />
     <Compile Include="Assets\Script\Goal.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
